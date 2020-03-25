@@ -8,9 +8,9 @@ import wasteless.model.*;
 import wasteless.service.*;
 
 import java.time.*;
+import java.time.format.*;
 
 @Controller
-@RequestMapping(value="/groceryItems")
 public class ItemController {
 
     private final ItemService itemService;
@@ -20,23 +20,27 @@ public class ItemController {
         this.itemService = itemService;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/groceryItems", method = RequestMethod.GET)
     public String findItemsByIdList(Model model) {
-        /*List<Item> itemList = itemService.findByIdList(idList);
-
-        for(Item item:itemList)
-        {
-            System.out.println(item.toString());
-        }*/
-
-        return "main";
+        return "groceryItem";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String insertItem(Model model) {
-        Item item = new Item("ciocolata", 5, 20, LocalDateTime.now(), LocalDateTime.now(), LocalDateTime.now());
-        itemService.insertItem(item);
+    @RequestMapping(value = "/groceryItems", method = RequestMethod.POST)
+    public String insertItem( @RequestParam("idList") int idList,
+                              @RequestParam("lName") String listName,
+                              @RequestParam("iname") String itemName,
+                             @RequestParam("quantity") int quantity,
+                             @RequestParam("calories") int calories,
+                             @RequestParam("pDate") String purchaseDate,
+                             @RequestParam("eDate") String expDate,
+                             Model model) {
 
-        return "main";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        itemService.insertItem(new GroceryItem(idList, itemName, quantity, calories, LocalDate.parse(purchaseDate, formatter), LocalDate.parse(expDate, formatter)));
+
+        model.addAttribute("idList", idList);
+        model.addAttribute("lName", listName);
+
+        return "groceryItem";
     }
 }

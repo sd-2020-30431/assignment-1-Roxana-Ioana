@@ -8,15 +8,15 @@ import wasteless.repository.*;
 @Service
 public class GroceryListService {
 
-    private final UserRepository userRepository;
+    private final GroceryListRepository groceryListRepository;
 
     @Autowired
-    public GroceryListService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public GroceryListService(GroceryListRepository groceryListRepository) {
+        this.groceryListRepository = groceryListRepository;
     }
 
-    public User findByUsernameAndPassword(String username, String password)
+    public GroceryList createNewList(GroceryList groceryList)
     {
-        return userRepository.findByUsernameAndPassword(username, password);
+        return groceryListRepository.save(groceryList);
     }
 }

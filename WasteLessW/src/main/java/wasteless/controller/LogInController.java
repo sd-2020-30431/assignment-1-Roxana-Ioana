@@ -28,7 +28,8 @@ public class LogInController {
         User user = userService.findUser(username, password);
         if(user!=null)
         {
-            return "main";
+            model.addAttribute("idUser", user.getIdUser());
+            return "groceryList";
         }
 
         return "login";

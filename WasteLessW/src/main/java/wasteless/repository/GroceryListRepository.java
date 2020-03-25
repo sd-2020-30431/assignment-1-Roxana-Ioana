@@ -6,4 +6,6 @@ import wasteless.model.*;
 
 @Repository
 public interface GroceryListRepository extends JpaRepository<GroceryList, Integer> {
+
+    GroceryList save(GroceryList groceryList);
 }

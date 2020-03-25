@@ -17,17 +17,17 @@ public class ItemService {
         this.itemRepository = itemRepository;
     }
 
-    public Item findById(int id)
+    public GroceryItem findById(int id)
     {
         return itemRepository.findById(id);
     }
 
-    public List<Item> findByIdList(int idList)
+    public List<GroceryItem> findByIdList(int idList)
     {
         return itemRepository.findByIdList(idList);
     }
 
-    public void insertItem(Item item) {
-        itemRepository.save(item);
+    public void insertItem(GroceryItem groceryItem) {
+        itemRepository.save(groceryItem);
     }
 }

@@ -7,9 +7,9 @@ import wasteless.model.*;
 import java.util.*;
 
 @Repository
-public interface ItemRepository extends JpaRepository<Item, Integer> {
+public interface ItemRepository extends JpaRepository<GroceryItem, Integer> {
 
-    Item findById(int id);
+    GroceryItem findById(int id);
 
-    List<Item> findByIdList(int idList);
+    List<GroceryItem> findByIdList(int idList);
 }

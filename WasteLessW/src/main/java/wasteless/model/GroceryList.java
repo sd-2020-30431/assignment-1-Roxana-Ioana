@@ -10,12 +10,14 @@ public class GroceryList {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idList;
     private int idUser;
+    private String name;
 
     public GroceryList() {
     }
 
-    public GroceryList(int idUser) {
+    public GroceryList(int idUser, String name) {
         this.idUser = idUser;
+        this.name = name;
     }
 
     public int getIdList() {
@@ -32,5 +34,13 @@ public class GroceryList {
 
     public void setIdUser(int idUser) {
         this.idUser = idUser;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
