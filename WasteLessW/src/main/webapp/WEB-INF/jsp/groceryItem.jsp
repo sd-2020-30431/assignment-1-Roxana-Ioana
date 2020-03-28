@@ -5,24 +5,55 @@
 
 </head>
 
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 5px;
+    }
+
+    tr:nth-child(even) {
+        background-color: cornflowerblue;
+    }
+
+    h1{
+        color: red;
+    }
+
+</style>
 <body>
 
 <form method="post" action="/groceryItems">
     <div1>
         <h2>Introduce items for the grocery list ${listName}</h2>
+        <h1>${errorMessage}</h1>
     </div1>
     <input type="hidden" name="idList" value="${idList}">
     <input type="hidden" name="listName" value="${listName}">
+
     <label for="iname">Item name </label>
     <input type="text" id="iname" name="iname" value=""><br><br>
+
     <label for="quantity">Quantity </label>
     <input type="text" id="quantity" name="quantity" value=""><br><br>
+
     <label for="calories">Calories </label>
     <input type="text" id="calories" name="calories" value=""><br><br>
+
     <label for="pDate">Purchase Date</label>
     <input type="text" id="pDate" name="pDate" value=""><br><br>
+
     <label for="eDate">Expiration Date </label>
     <input type="text" id="eDate" name="eDate" value=""><br><br>
+
+    <label for="cDate">Consumption Date </label>
+    <input type="text" id="cDate" name="cDate" value=""><br><br>
 
     <input type="submit" value="Submit">
 </form>

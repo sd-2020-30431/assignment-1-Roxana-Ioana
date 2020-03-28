@@ -30,6 +30,16 @@ public class GroceryItem {
         this.expirationDate = expirationDate;
     }
 
+    public GroceryItem(int idList, String name, int quantity, int calories, LocalDate purchaseDate, LocalDate expirationDate, LocalDate consumptionDate) {
+        this.idList = idList;
+        this.name = name;
+        this.quantity = quantity;
+        this.calories = calories;
+        this.purchaseDate = purchaseDate;
+        this.expirationDate = expirationDate;
+        this.consumptionDate = consumptionDate;
+    }
+
     public int getIdList() {
         return idList;
     }
