@@ -30,4 +30,8 @@ public class ItemService {
     public void insertItem(GroceryItem groceryItem) {
         itemRepository.save(groceryItem);
     }
+
+    public void deleteItem(int idItem) {
+        itemRepository.deleteByIdItem(idItem);
+    }
 }

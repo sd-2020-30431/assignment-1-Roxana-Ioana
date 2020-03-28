@@ -9,10 +9,10 @@
 
 <form method="post" action="/groceryItems">
     <div1>
-        <h2>Introduce items for the grocery list ${lName}</h2>
+        <h2>Introduce items for the grocery list ${listName}</h2>
     </div1>
     <input type="hidden" name="idList" value="${idList}">
-    <input type="hidden" name="lName" value="${lName}">
+    <input type="hidden" name="listName" value="${listName}">
     <label for="iname">Item name </label>
     <input type="text" id="iname" name="iname" value=""><br><br>
     <label for="quantity">Quantity </label>
@@ -26,6 +26,38 @@
 
     <input type="submit" value="Submit">
 </form>
+
+<table>
+    <tr>
+        <th>Item Name</th>
+        <th>Quantity</th>
+        <th>Calories</th>
+        <th>Purchase Date</th>
+        <th>Expiration Date</th>
+        <th>Consumption Date</th>
+    </tr>
+
+    <form method="post" action="/groceryItems/donate">
+        <input type="hidden" name="idList" value="${idList}">
+        <input type="hidden" name="listName" value="${listName}">
+        <c:forEach items="${items}" var="item">
+            <tr>
+                <div1>
+                    <td>"${item.name}"</td>
+                    <td>"${item.quantity}"</td>
+                    <td>"${item.calories}"</td>
+                    <td>"${item.purchaseDate}"</td>
+                    <td>"${item.expirationDate}"</td>
+                    <td>"${item.consumptionDate}"</td>
+                    <td>
+                        <button id="submit" type="submit" class="btn" value="${item.idItem}" name="idItem">Donate</button>
+                    </td>
+                </div1>
+            </tr>
+        </c:forEach>
+    </form>
+
+</table>
 
 </body>
 </html>

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.*;
 import wasteless.model.*;
 import wasteless.service.*;
 
@@ -23,15 +24,15 @@ public class LogInController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    private String login(@RequestParam("username") String username, @RequestParam("password") String password, Model model){
+    private String login(@RequestParam("username") String username, @RequestParam("password") String password, RedirectAttributes redirectAttrs){
 
         User user = userService.findUser(username, password);
         if(user!=null)
         {
-            model.addAttribute("idUser", user.getIdUser());
-            return "groceryList";
+            redirectAttrs.addAttribute("idUser", user.getIdUser());
+            return "redirect:/groceryList";
         }
 
-        return "login";
+        return "redirect:/";
     }
 }

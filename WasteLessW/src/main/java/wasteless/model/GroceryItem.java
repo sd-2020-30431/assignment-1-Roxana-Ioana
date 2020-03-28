@@ -18,6 +18,9 @@ public class GroceryItem {
     private LocalDate expirationDate;
     private LocalDate consumptionDate;
 
+    public GroceryItem() {
+    }
+
     public GroceryItem(int idList, String name, int quantity, int calories, LocalDate purchaseDate, LocalDate expirationDate) {
         this.idList = idList;
         this.name = name;
