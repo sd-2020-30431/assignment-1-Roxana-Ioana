@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.*;
 import wasteless.model.*;
 
-import java.awt.*;
 import java.util.*;
 
 @Repository

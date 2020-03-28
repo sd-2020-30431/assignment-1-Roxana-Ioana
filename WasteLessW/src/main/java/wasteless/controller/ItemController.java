@@ -24,7 +24,7 @@ public class ItemController {
     }
 
     @RequestMapping(value = "/groceryItems", method = RequestMethod.GET)
-    public String findItemsByIdList(@RequestParam(value="errorMessage", required = false) String errorMessage, @RequestParam("listName") String listName, @RequestParam("idList") int idList, Model model) {
+    public String findItemsByIdList(@RequestParam(value = "errorMessage", required = false) String errorMessage, @RequestParam("listName") String listName, @RequestParam("idList") int idList, Model model) {
         model.addAttribute("idList", idList);
         model.addAttribute("listName", listName);
         model.addAttribute("errorMessage", errorMessage);
@@ -48,7 +48,6 @@ public class ItemController {
                              RedirectAttributes redirectAttrs) {
 
         String errorMessage = null;
-        System.out.println(quantity + "***************************");
         if (quantity <= 0 || calories <= 0) {
             errorMessage = "Invalid quantity or calories!";
         } else {

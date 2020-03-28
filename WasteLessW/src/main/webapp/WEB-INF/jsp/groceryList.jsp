@@ -59,6 +59,13 @@
     </form>
 
 </table>
+
+<form action="/report" method="GET">
+    <input type="hidden" name="idUser" value="${idUser}">
+    <button id="wReport" type="submit" class="btn" value="WEEKLY" name="type">Weekly Report</button>
+    <button id="mReport" type="submit" class="btn" value="MONTHLY" name="type">Montly Report</button>
+</form>
+
 </body>
 
 </html>

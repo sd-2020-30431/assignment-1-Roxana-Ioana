@@ -15,8 +15,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User findUser(String username, String password)
-    {
+    public User findUser(String username, String password) {
         return userRepository.findByUsernameAndPassword(username, password);
     }
 }

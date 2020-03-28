@@ -5,7 +5,6 @@ import org.springframework.stereotype.*;
 import wasteless.model.*;
 import wasteless.repository.*;
 
-import java.awt.*;
 import java.util.*;
 
 @Service
@@ -18,8 +17,7 @@ public class GroceryListService {
         this.groceryListRepository = groceryListRepository;
     }
 
-    public GroceryList createNewList(GroceryList groceryList)
-    {
+    public GroceryList createNewList(GroceryList groceryList) {
         return groceryListRepository.save(groceryList);
     }
 

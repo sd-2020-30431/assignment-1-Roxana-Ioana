@@ -17,13 +17,11 @@ public class ItemService {
         this.itemRepository = itemRepository;
     }
 
-    public GroceryItem findById(int id)
-    {
+    public GroceryItem findById(int id) {
         return itemRepository.findById(id);
     }
 
-    public List<GroceryItem> findByIdList(int idList)
-    {
+    public List<GroceryItem> findByIdList(int idList) {
         return itemRepository.findByIdList(idList);
     }
 

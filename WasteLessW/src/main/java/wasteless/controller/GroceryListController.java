@@ -44,8 +44,7 @@ public class GroceryListController {
     public String editList(@RequestParam("idList") int idList, RedirectAttributes redirectAttrs) {
         redirectAttrs.addAttribute("idList", idList);
         Optional<GroceryList> list = groceryListService.findListById(idList);
-        if(list.isPresent())
-        {
+        if (list.isPresent()) {
             GroceryList listFound = list.get();
             redirectAttrs.addAttribute("listName", listFound.getName());
         }
