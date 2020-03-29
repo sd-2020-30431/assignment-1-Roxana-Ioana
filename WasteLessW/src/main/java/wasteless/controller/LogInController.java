@@ -29,7 +29,7 @@ public class LogInController {
         User user = userService.findUser(username, password);
         if (user != null) {
             redirectAttrs.addAttribute("idUser", user.getIdUser());
-            return "redirect:/groceryList";
+            return "redirect:/goal";
         }
 
         return "redirect:/";

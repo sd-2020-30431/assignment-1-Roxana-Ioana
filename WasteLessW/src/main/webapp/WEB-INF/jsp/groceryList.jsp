@@ -49,7 +49,7 @@
         <c:forEach items="${lists}" var="list">
             <tr>
                 <div1>
-                    <td>"${list.name}"</td>
+                    <td>${list.name}</td>
                     <td>
                         <button id="submit" type="submit" class="btn" value="${list.idList}" name="idList">Edit</button>
                     </td>
