@@ -20,10 +20,15 @@
     <button id="submit" type="submit" class="btn" value="setGoal">Submit Goal</button>
 </form>
 
-<p>You should eat today: ${nbOfCalories}</p><br>
-<p>Your current goal is: ${goal}</p><br>
+<p>You should eat today: ${caloriesToday}</p>
+<p>Your current goal is: ${goal}</p>
 
-<p>Waste or nor? ${waste}</p>
+<p>Will be waste? ${waste}</p>
+
+<form action="/groceryList" method="GET">
+    <input type="hidden" name="idUser" value="${idUser}">
+    <button id="skip" type="skip" class="btn" value="skip">Skip</button>
+</form>
 
 </body>
 </html>

@@ -19,13 +19,25 @@ public class GoalController {
 
     @RequestMapping(value = "/goal", method = RequestMethod.GET)
     public String goal(@RequestParam(value = "idUser") int idUser, Model model) {
+
         int nbOfCalories = goalService.caloriesToday(idUser);
+
         int goal = goalService.getGoal(idUser);
         boolean isWaste = nbOfCalories > goal;
+        String message = "";
 
-        /*model.addAttribute("caloriesToday", nbOfCalories);
+        if(isWaste)
+        {
+            message = "YES";
+        }else
+        {
+            message = "NO";
+        }
+
+        model.addAttribute("caloriesToday", nbOfCalories);
         model.addAttribute("goal", goal);
-        model.addAttribute("waste", isWaste);*/
+        model.addAttribute("waste", message);
+        model.addAttribute("idUser", idUser);
 
         return "goals";
     }

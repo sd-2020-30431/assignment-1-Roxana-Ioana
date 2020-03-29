@@ -52,15 +52,23 @@ public class ItemController {
             errorMessage = "Invalid quantity or calories!";
         } else {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate consumptionDate = LocalDate.parse(conDate, formatter);
             LocalDate purchaseDate = LocalDate.parse(purDate, formatter);
             LocalDate expirationDate = LocalDate.parse(expDate, formatter);
 
-            if (consumptionDate.isBefore(purchaseDate) || consumptionDate.isAfter(expirationDate)) {
-                errorMessage = "Invalid consumption date!";
-            } else {
-                itemService.insertItem(new GroceryItem(idList, itemName, quantity, calories, purchaseDate, expirationDate, consumptionDate));
+            if(!conDate.equals(""))
+            {
+                LocalDate consumptionDate = LocalDate.parse(conDate, formatter);
+                if (consumptionDate.isBefore(purchaseDate) || consumptionDate.isAfter(expirationDate)) {
+                    errorMessage = "Invalid consumption date!";
+                } else {
+                    itemService.insertItem(new GroceryItem(idList, itemName, quantity, calories, purchaseDate, expirationDate, consumptionDate));
+                }
             }
+            else
+            {
+                itemService.insertItem(new GroceryItem(idList, itemName, quantity, calories, purchaseDate, expirationDate));
+            }
+
         }
 
         System.out.println(errorMessage);
